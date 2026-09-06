@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+<html lang="ko"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport"/>
+<title>Education Satisfaction &amp; Material Request</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Google Fonts: Plus Jakarta Sans & Hanken Grotesk -->
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "secondary-container": "#d1e5f3",
+                "pastel-peach": "#FBE7D1",
+                "on-surface": "#191c1d",
+                "on-error-container": "#93000a",
+                "on-tertiary-fixed": "#111e16",
+                "on-primary-fixed": "#241a0d",
+                "inverse-primary": "#d6c4af",
+                "sky-blue-tint": "#D6EAF8",
+                "on-primary-container": "#756755",
+                "surface": "#f8f9fa",
+                "on-surface-variant": "#4d463e",
+                "background": "#f8f9fa",
+                "error-container": "#ffdad6",
+                "surface-tint": "#6a5c4b",
+                "on-background": "#191c1d",
+                "on-tertiary": "#ffffff",
+                "surface-container-high": "#e7e8e9",
+                "primary-container": "#fbe7d1",
+                "on-primary": "#ffffff",
+                "tertiary": "#536257",
+                "inverse-surface": "#2e3132",
+                "primary-fixed": "#f3dfca",
+                "tertiary-container": "#ddeee0",
+                "ethereal-white": "rgba(255, 255, 255, 0.4)",
+                "secondary": "#4e616d",
+                "surface-bright": "#f8f9fa",
+                "on-error": "#ffffff",
+                "on-tertiary-container": "#5d6d62",
+                "outline": "#7e766d",
+                "secondary-fixed": "#d1e5f3",
+                "on-secondary-fixed": "#0a1e28",
+                "outline-variant": "#d0c5ba",
+                "on-primary-fixed-variant": "#514535",
+                "on-secondary-fixed-variant": "#374954",
+                "inverse-on-surface": "#f0f1f2",
+                "on-tertiary-fixed-variant": "#3b4a40",
+                "on-secondary": "#ffffff",
+                "secondary-fixed-dim": "#b6c9d7",
+                "surface-container": "#edeeef",
+                "tertiary-fixed": "#d6e7d9",
+                "on-secondary-container": "#546773",
+                "tertiary-fixed-dim": "#bacbbd",
+                "error": "#ba1a1a",
+                "surface-container-lowest": "#ffffff",
+                "primary": "#6a5c4b",
+                "surface-dim": "#d9dadb",
+                "surface-variant": "#e1e3e4",
+                "surface-container-highest": "#e1e3e4",
+                "surface-container-low": "#f3f4f5",
+                "border-glass": "rgba(255, 255, 255, 0.6)",
+                "primary-fixed-dim": "#d6c4af",
+                "pale-mint": "#E2F3E5"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "stack-sm": "0.5rem",
+                "gutter": "1.5rem",
+                "stack-md": "1.5rem",
+                "container-max": "640px",
+                "stack-lg": "3rem",
+                "card-padding-mobile": "1.25rem",
+                "card-padding": "2rem"
+        },
+        "fontFamily": {
+                "headline-lg-mobile": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-sm": [
+                        "Hanken Grotesk"
+                ],
+                "headline-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "display-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "button": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-md": [
+                        "Hanken Grotesk"
+                ],
+                "label-bold": [
+                        "Hanken Grotesk"
+                ]
+        },
+        "fontSize": {
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-sm": [
+                        "13px",
+                        {
+                                "lineHeight": "1.4",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "button": [
+                        "15px",
+                        {
+                                "lineHeight": "1",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-bold": [
+                        "14px",
+                        {
+                                "lineHeight": "1.4",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        /* Custom Styles for Form Elements and Animations */
+        body {
+            -webkit-tap-highlight-color: transparent;
+            min-height: max(884px, 100dvh);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .glass-input {
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .glass-input:focus {
+            border-color: theme('colors.outline-variant');
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.5);
+            background: rgba(255, 255, 255, 0.7);
+            outline: none;
+        }
+
+        .rating-tile {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .rating-input:checked + .rating-tile {
+            background: theme('colors.primary');
+            border-color: theme('colors.primary');
+            box-shadow: 0 4px 12px rgba(106, 92, 75, 0.15);
+            transform: scale(1.05);
+        }
+        
+        .rating-input:checked + .rating-tile .rating-icon {
+            color: white;
+            font-variation-settings: 'FILL' 1;
+        }
+        
+        .rating-input:checked + .rating-tile .rating-text {
+            color: white;
+            font-weight: 600;
+        }
+
+        .btn-glow {
+            transition: all 0.3s ease;
+        }
+        
+        .btn-glow:hover {
+            box-shadow: 0 8px 24px rgba(209, 229, 243, 0.5);
+            transform: scale(1.02);
+        }
+        
+        .btn-glow:active {
+            transform: scale(0.98);
+        }
+
+        /* Success Animation Classes */
+        .fade-out {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        .fade-in {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease 0.3s, visibility 0.5s ease 0.3s;
+        }
+
+        .checkmark-circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            stroke: theme('colors.tertiary');
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+
+        .checkmark-check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            stroke: theme('colors.tertiary');
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen relative overflow-x-hidden">
+<!-- Background Canvas -->
+<canvas class="fixed inset-0 w-full h-full z-0 pointer-events-none" id="bg-canvas"></canvas>
+
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-40 flex justify-between items-center px-6 h-16 bg-surface/30 dark:bg-surface-container-lowest/10 docked full-width top-0 backdrop-blur-xl border-b border-white/30 shadow-sm transition-opacity">
+<button aria-label="Menu" onclick="toggleMenuModal(true)" class="text-on-surface-variant hover:opacity-80 active:scale-95 duration-200 focus:outline-none">
+<span class="material-symbols-outlined text-2xl">menu</span>
+</button>
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile font-bold text-on-surface">Form Journey</h1>
+<button aria-label="Profile" onclick="toggleProfileModal(true)" class="text-on-surface-variant hover:opacity-80 active:scale-95 duration-200 focus:outline-none">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+</button>
+</header>
+
+<!-- Side Navigation Menu Drawer (Menu Modal) -->
+<div id="menu-modal" class="fixed inset-0 z-50 invisible transition-all duration-300">
+    <div onclick="toggleMenuModal(false)" class="absolute inset-0 bg-black/20 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="menu-backdrop"></div>
+    <div class="absolute top-0 left-0 bottom-0 w-72 glass-card p-6 shadow-2xl transition-transform duration-300 -translate-x-full flex flex-col justify-between" id="menu-drawer">
+        <div>
+            <div class="flex items-center justify-between mb-8">
+                <span class="font-headline-lg-mobile text-lg font-bold text-on-surface">메뉴</span>
+                <button onclick="toggleMenuModal(false)" class="text-on-surface-variant hover:opacity-80">
+                    <span class="material-symbols-outlined">close</span>
+                </button>
+            </div>
+            <nav class="space-y-3">
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-label-bold transition-colors">
+                    <span class="material-symbols-outlined">assignment</span> 설문조사
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/30 font-label-bold transition-colors">
+                    <span class="material-symbols-outlined">inventory_2</span> 자료 요청 내역
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/30 font-label-bold transition-colors">
+                    <span class="material-symbols-outlined">history</span> 참여 히스토리
+                </a>
+                <a href="#" class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-white/30 font-label-bold transition-colors">
+                    <span class="material-symbols-outlined">settings</span> 설정
+                </a>
+            </nav>
+        </div>
+        <div class="text-xs text-on-surface-variant/60 font-body-md">
+            © 2026 Form Journey
+        </div>
+    </div>
+</div>
+
+<!-- Profile Card Popover (Profile Modal) -->
+<div id="profile-modal" class="fixed inset-0 z-50 invisible transition-all duration-200">
+    <div onclick="toggleProfileModal(false)" class="absolute inset-0 bg-black/10 opacity-0 transition-opacity duration-200" id="profile-backdrop"></div>
+    <div class="absolute top-16 right-6 w-80 glass-card p-6 rounded-xl shadow-xl transition-all duration-200 opacity-0 scale-95 origin-top-right" id="profile-card">
+        <div class="flex items-center gap-4 mb-4 pb-4 border-b border-white/30">
+            <div class="w-12 h-12 rounded-full bg-pastel-peach flex items-center justify-center text-primary font-bold text-xl">
+                홍
+            </div>
+            <div>
+                <div class="font-headline-lg-mobile text-base text-on-surface font-semibold">홍길동 님</div>
+                <div class="font-body-md text-xs text-on-surface-variant">user@example.com</div>
+            </div>
+        </div>
+        <div class="space-y-2">
+            <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-on-surface-variant hover:bg-white/30 transition-colors">
+                <span class="material-symbols-outlined text-lg">person</span> 내 프로필 수정
+            </a>
+            <a href="#" class="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-on-surface-variant hover:bg-white/30 transition-colors">
+                <span class="material-symbols-outlined text-lg">download</span> 신청한 자료함
+            </a>
+            <button onclick="toggleProfileModal(false)" class="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-error hover:bg-error-container/20 transition-colors text-left mt-2">
+                <span class="material-symbols-outlined text-lg">logout</span> 로그아웃
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content Canvas -->
+<main class="relative z-10 min-h-screen pt-24 pb-32 px-6 md:px-10 flex items-center justify-center">
+<div class="w-full max-w-[container-max] mx-auto">
+<!-- Progress Bar -->
+<div class="glass-card rounded-full h-2 mb-6 overflow-hidden">
+<div class="h-full bg-gradient-to-r from-sky-blue-tint to-pastel-peach w-[80%] rounded-full transition-all duration-500" id="progress-bar"></div>
+</div>
+<!-- Form Card -->
+<div class="glass-card rounded-xl p-card-padding-mobile md:p-card-padding relative overflow-hidden transition-all duration-500" id="form-container">
+<div class="mb-8 text-center">
+<h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Education Satisfaction</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">&amp; Material Request</p>
+</div>
+<form class="space-y-[24px]" id="survey-form" onsubmit="handleFormSubmit(event)">
+<!-- Text Input 1 -->
+<div class="flex flex-col gap-2">
+<label class="font-label-bold text-label-bold text-on-surface flex items-center gap-2" for="name">
+                            소속 / 성함 <span class="text-error/80">*</span>
+</label>
+<input class="glass-input w-full rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50" id="name" name="name" placeholder="예: 구글코리아 / 홍길동" required="" type="text"/>
+</div>
+<!-- Email Input 2 -->
+<div class="flex flex-col gap-2">
+<label class="font-label-bold text-label-bold text-on-surface flex items-center gap-2" for="email">
+                            자료받을 이메일 <span class="text-error/80">*</span>
+</label>
+<input class="glass-input w-full rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50" id="email" name="email" placeholder="example@email.com" required="" type="email"/>
+</div>
+<!-- Rating Scale 3 -->
+<div class="flex flex-col gap-3">
+<label class="font-label-bold text-label-bold text-on-surface">
+                            오늘 강의는 어떠셨나요? <span class="text-error/80">*</span>
+</label>
+<div class="flex justify-between gap-2 sm:gap-4">
+<label class="flex-1 cursor-pointer">
+<input class="sr-only rating-input" name="rating" required="" type="radio" value="1"/>
+<div class="rating-tile flex flex-col items-center justify-center py-3 rounded-lg h-full">
+<span class="material-symbols-outlined rating-icon text-on-surface-variant/70 mb-1" style="font-size: 24px;">sentiment_very_dissatisfied</span>
+<span class="rating-text font-body-md text-xs text-on-surface-variant/80 text-center">아쉬워요</span>
+</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="sr-only rating-input" name="rating" type="radio" value="2"/>
+<div class="rating-tile flex flex-col items-center justify-center py-3 rounded-lg h-full">
+<span class="material-symbols-outlined rating-icon text-on-surface-variant/70 mb-1" style="font-size: 24px;">sentiment_dissatisfied</span>
+</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="sr-only rating-input" name="rating" type="radio" value="3"/>
+<div class="rating-tile flex flex-col items-center justify-center py-3 rounded-lg h-full">
+<span class="material-symbols-outlined rating-icon text-on-surface-variant/70 mb-1" style="font-size: 24px;">sentiment_neutral</span>
+<span class="rating-text font-body-md text-xs text-on-surface-variant/80 text-center">보통이에요</span>
+</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="sr-only rating-input" name="rating" type="radio" value="4"/>
+<div class="rating-tile flex flex-col items-center justify-center py-3 rounded-lg h-full">
+<span class="material-symbols-outlined rating-icon text-on-surface-variant/70 mb-1" style="font-size: 24px;">sentiment_satisfied</span>
+</div>
+</label>
+<label class="flex-1 cursor-pointer">
+<input class="sr-only rating-input" name="rating" type="radio" value="5"/>
+<div class="rating-tile flex flex-col items-center justify-center py-3 rounded-lg h-full">
+<span class="material-symbols-outlined rating-icon text-on-surface-variant/70 mb-1" style="font-size: 24px;">sentiment_very_satisfied</span>
+<span class="rating-text font-body-md text-xs text-on-surface-variant/80 text-center">최고예요</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Textarea 4 -->
+<div class="flex flex-col gap-2">
+<label class="font-label-bold text-label-bold text-on-surface" for="feedback">
+                            가장 유익했던 점 / 피드백
+                        </label>
+<textarea class="glass-input w-full rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50 resize-none" id="feedback" name="feedback" placeholder="자유롭게 의견을 남겨주세요." rows="3"></textarea>
+</div>
+<!-- Text Input 5 -->
+<div class="flex flex-col gap-2">
+<label class="font-label-bold text-label-bold text-on-surface" for="next_topic">
+                            개설을 희망하는 다음 교육 주제
+                        </label>
+<input class="glass-input w-full rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50" id="next_topic" name="next_topic" placeholder="예: 심화 데이터 분석 과정" type="text"/>
+</div>
+<!-- Submit Button -->
+<div class="pt-4">
+<button class="w-full bg-gradient-to-r from-sky-blue-tint to-pastel-peach text-on-surface font-button text-button py-4 rounded-full btn-glow flex justify-center items-center gap-2" id="submit-btn" type="submit">
+<span>제출하고 자료 신청하기</span>
+<span class="material-symbols-outlined text-xl">send</span>
+</button>
+</div>
+</form>
+</div>
+<!-- Success State (Hidden by default) -->
+<div class="glass-card rounded-xl p-card-padding-mobile md:p-card-padding absolute inset-x-0 top-1/2 -translate-y-1/2 opacity-0 invisible flex flex-col items-center justify-center text-center mx-6 md:mx-auto max-w-[container-max] z-20" id="success-container">
+<div class="w-24 h-24 mb-6">
+<svg class="w-full h-full" viewbox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+<circle class="checkmark-circle" cx="26" cy="26" fill="none" r="25"></circle>
+<path class="checkmark-check" d="M14.1 27.2l7.1 7.2 16.7-16.8" fill="none"></path>
+</svg>
+</div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">제출 완료되었습니다!</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8">소중한 의견 감사드립니다.<br/>입력하신 이메일로 자료를 보내드리겠습니다.</p>
+<button class="px-6 py-3 border border-outline-variant text-on-surface font-button text-button rounded-full hover:bg-black/5 transition-colors" onclick="resetForm()">
+                    새로운 설문 작성
+                </button>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-40 flex justify-around items-center px-4 py-3 pb-safe bg-surface/30 dark:bg-surface-container-lowest/10 backdrop-blur-xl border-t border-white/30 shadow-[0_-10px_20px_rgba(0,0,0,0.02)] md:hidden">
+<!-- Active Nav Item -->
+<a class="flex flex-col items-center justify-center bg-primary text-on-primary rounded-full px-4 py-1 hover:bg-black/5 transition-colors scale-110 duration-300 ease-out" href="#">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-bold text-[10px]">Surveys</span>
+</a>
+<!-- Inactive Nav Items -->
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-black/5 rounded-full px-4 py-1 transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">inventory_2</span>
+<span class="font-label-bold text-[10px]">Requests</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-black/5 rounded-full px-4 py-1 transition-colors" href="#">
+<span class="material-symbols-outlined mb-1">history</span>
+<span class="font-label-bold text-[10px]">History</span>
+</a>
+</nav>
+<script>
+    // 1. 사용자 정보 및 상태 관리
+    let userInfo = {
+        name: '홍길동',
+        email: 'user@example.com',
+        company: '구글코리아'
+    };
+
+    let currentTab = 'survey';
+
+    // UI 내 사용자 정보 업데이트 함수
+    function updateProfileUI() {
+        // 상단 프로필 모달 내 정보 변경
+        const profileNameEl = document.querySelector('#profile-card p.font-headline-sm-mobile');
+        const profileEmailEl = document.querySelector('#profile-card p.font-body-md');
+        
+        if (profileNameEl) profileNameEl.textContent = `${userInfo.name} 님`;
+        if (profileEmailEl) profileEmailEl.textContent = userInfo.email;
+
+        // 설문조사 폼 내 기본값 반영 (설문 탭일 경우)
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        if (nameInput) nameInput.value = `${userInfo.company} / ${userInfo.name}`;
+        if (emailInput) emailInput.value = userInfo.email;
+    }
+
+    // 2. 화면별 템플릿 데이터 함수
+    function getViews() {
+        return {
+            survey: `
+                <div class="mb-8 text-center">
+                    <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">Education Satisfaction</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant">& Material Request</p>
+                </div>
+                <form class="space-y-[24px]" id="survey-form" onsubmit="handleFormSubmit(event)">
+                    <div class="flex flex-col gap-2">
+                        <label class="font-label-bold text-label-bold text-on-surface flex items-center gap-2" for="name">
+                            소속 / 성함 <span class="text-error/80">*</span>
+                        </label>
+                        <input class="glass-input w-full rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50" id="name" name="name" value="${userInfo.company} / ${userInfo.name}" required="" type="text"/>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="font-label-bold text-label-bold text-on-surface flex items-center gap-2" for="email">
+                            자료받을 이메일 <span class="text-error/80">*</span>
+                        </label>
+                        <input class="glass-input w-full rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50" id="email" name="email" value="${userInfo.email}" required="" type="email"/>
+                    </div>
+                    <div class="flex flex-col gap-3">
+                        <label class="font-label-bold text-label-bold text-on-surface">
+                            오늘 강의는 어떠셨나요? <span class="text-error/80">*</span>
+                        </label>
+                        <div class="flex justify-between gap-2 sm:gap-4">
+                            <label class="flex-1 cursor-pointer">
+                                <input class="sr-only rating-input" name="rating" required="" type="radio" value="1"/>
+                                <div class="rating-tile flex flex-col items-center justify-center py-3 rounded-lg h-full">
+                                    <span class="material-symbols-outlined rating-icon text-on-surface-variant/70 mb-1" style="font-size: 24px;">sentiment_very_dissatisfied</span>
+                                    <span class="rating-text font-body-md text-xs text-on-surface-variant/80 text-center">아쉬워요</span>
+                                </div>
+                            </label>
+                            <label class="flex-1 cursor-pointer">
+                                <input class="sr-only rating-input" name="rating" type="radio" value="2"/>
+                                <div class="rating-tile flex flex-col items-center justify-center py-3 rounded-lg h-full">
+                                    <span class="material-symbols-outlined rating-icon text-on-surface-variant/70 mb-1" style="font-size: 24px;">sentiment_dissatisfied</span>
+                                </div>
+                            </label>
+                            <label class="flex-1 cursor-pointer">
+                                <input class="sr-only rating-input" name="rating" type="radio" value="3"/>
+                                <div class="rating-tile flex flex-col items-center justify-center py-3 rounded-lg h-full">
+                                    <span class="material-symbols-outlined rating-icon text-on-surface-variant/70 mb-1" style="font-size: 24px;">sentiment_neutral</span>
+                                    <span class="rating-text font-body-md text-xs text-on-surface-variant/80 text-center">보통이에요</span>
+                                </div>
+                            </label>
+                            <label class="flex-1 cursor-pointer">
+                                <input class="sr-only rating-input" name="rating" type="radio" value="4"/>
+                                <div class="rating-tile flex flex-col items-center justify-center py-3 rounded-lg h-full">
+                                    <span class="material-symbols-outlined rating-icon text-on-surface-variant/70 mb-1" style="font-size: 24px;">sentiment_satisfied</span>
+                                </div>
+                            </label>
+                            <label class="flex-1 cursor-pointer">
+                                <input class="sr-only rating-input" name="rating" type="radio" value="5"/>
+                                <div class="rating-tile flex flex-col items-center justify-center py-3 rounded-lg h-full">
+                                    <span class="material-symbols-outlined rating-icon text-on-surface-variant/70 mb-1" style="font-size: 24px;">sentiment_very_satisfied</span>
+                                    <span class="rating-text font-body-md text-xs text-on-surface-variant/80 text-center">최고예요</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="font-label-bold text-label-bold text-on-surface" for="feedback">가장 유익했던 점 / 피드백</label>
+                        <textarea class="glass-input w-full rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50 resize-none" id="feedback" name="feedback" placeholder="자유롭게 의견을 남겨주세요." rows="3"></textarea>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="font-label-bold text-label-bold text-on-surface" for="next_topic">개설을 희망하는 다음 교육 주제</label>
+                        <input class="glass-input w-full rounded-lg px-4 py-3 font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/50" id="next_topic" name="next_topic" placeholder="예: 심화 데이터 분석 과정" type="text"/>
+                    </div>
+                    <div class="pt-4">
+                        <button class="w-full bg-gradient-to-r from-sky-blue-tint to-pastel-peach text-on-surface font-button text-button py-4 rounded-full btn-glow flex justify-center items-center gap-2" id="submit-btn" type="submit">
+                            <span>제출하고 자료 신청하기</span>
+                            <span class="material-symbols-outlined text-xl">send</span>
+                        </button>
+                    </div>
+                </form>`,
+            requests: `
+                <div class="text-center py-6">
+                    <span class="material-symbols-outlined text-5xl text-primary mb-3">inventory_2</span>
+                    <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">자료 요청 내역</h2>
+                    <p class="font-body-md text-on-surface-variant mb-6">신청하신 교육 자료 목록입니다.</p>
+                    <div class="bg-white/30 rounded-lg p-4 text-left space-y-3">
+                        <div class="p-3 bg-white/40 rounded border border-white/40">
+                            <div class="font-bold text-sm">2026 AI 실무 활용 강의 자료</div>
+                            <div class="text-xs text-on-surface-variant/80">수신 이메일: ${userInfo.email}</div>
+                            <div class="text-xs text-primary font-semibold mt-1">발송 완료 • 2026.09.01</div>
+                        </div>
+                    </div>
+                </div>`,
+            history: `
+                <div class="text-center py-6">
+                    <span class="material-symbols-outlined text-5xl text-primary mb-3">history</span>
+                    <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">참여 히스토리</h2>
+                    <p class="font-body-md text-on-surface-variant mb-6">${userInfo.name} 님의 작성 이력입니다.</p>
+                    <div class="bg-white/30 rounded-lg p-4 text-left space-y-2">
+                        <div class="text-sm font-semibold">• 9월 1차 교육 만족도 조사 (완료)</div>
+                        <div class="text-sm font-semibold">• 8월 데이터 분석 워크숍 (완료)</div>
+                    </div>
+                </div>`,
+            settings: `
+                <div class="text-center py-6">
+                    <span class="material-symbols-outlined text-5xl text-primary mb-3">settings</span>
+                    <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface mb-2">설정</h2>
+                    <p class="font-body-md text-on-surface-variant mb-6">알림 및 계정 설정을 관리합니다.</p>
+                    <div class="flex justify-between items-center bg-white/30 p-4 rounded-lg mb-3">
+                        <span class="text-sm font-medium">이메일 알림 수신</span>
+                        <input type="checkbox" checked class="rounded text-primary focus:ring-0" />
+                    </div>
+                </div>`,
+            profile: `
+                <div class="py-4">
+                    <div class="text-center mb-6">
+                        <span class="material-symbols-outlined text-5xl text-primary mb-2">manage_accounts</span>
+                        <h2 class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface">프로필 수정</h2>
+                        <p class="font-body-md text-on-surface-variant text-xs mt-1">회원 정보를 수정하실 수 있습니다.</p>
+                    </div>
+                    <form onsubmit="handleProfileUpdate(event)" class="space-y-4 text-left">
+                        <div>
+                            <label class="text-xs font-bold text-on-surface-variant mb-1 block">성함</label>
+                            <input type="text" id="edit-name" value="${userInfo.name}" class="glass-input w-full rounded-lg px-4 py-2.5 text-sm" required />
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-on-surface-variant mb-1 block">이메일</label>
+                            <input type="email" id="edit-email" value="${userInfo.email}" class="glass-input w-full rounded-lg px-4 py-2.5 text-sm" required />
+                        </div>
+                        <div>
+                            <label class="text-xs font-bold text-on-surface-variant mb-1 block">소속</label>
+                            <input type="text" id="edit-company" value="${userInfo.company}" class="glass-input w-full rounded-lg px-4 py-2.5 text-sm" />
+                        </div>
+                        <div class="pt-2">
+                            <button type="submit" class="w-full bg-primary text-white font-button text-sm py-3 rounded-full btn-glow">
+                                저장하기
+                            </button>
+                        </div>
+                    </form>
+                </div>`
+        };
+    }
+
+    // 3. 화면 전환 함수
+    function navigateTo(tabName) {
+        currentTab = tabName;
+        const formContainer = document.getElementById('form-container');
+        const views = getViews();
+        
+        formContainer.classList.add('opacity-0');
+        setTimeout(() => {
+            if (views[tabName]) {
+                formContainer.innerHTML = views[tabName];
+            }
+            formContainer.classList.remove('opacity-0');
+        }, 150);
+
+        toggleMenuModal(false);
+        toggleProfileModal(false);
+    }
+
+    // 4. 프로필 정보 수정 처리 함수
+    function handleProfileUpdate(event) {
+        event.preventDefault();
+        
+        const newName = document.getElementById('edit-name').value.trim();
+        const newEmail = document.getElementById('edit-email').value.trim();
+        const newCompany = document.getElementById('edit-company').value.trim();
+
+        if (newName && newEmail) {
+            userInfo.name = newName;
+            userInfo.email = newEmail;
+            userInfo.company = newCompany;
+
+            updateProfileUI();
+            alert('프로필 정보가 수정되었습니다.');
+            navigateTo('survey');
+        }
+    }
+
+    // 5. 로그아웃 처리 함수
+    function handleLogout(event) {
+        if (event) event.preventDefault();
+        
+        if (confirm('로그아웃 하시겠습니까?')) {
+            alert('로그아웃 되었습니다.');
+            // 로그아웃 후 기본 프로필로 초기화 및 설문 탭으로 이동
+            userInfo = { name: '게스트', email: 'guest@example.com', company: '소속 없음' };
+            updateProfileUI();
+            navigateTo('survey');
+        }
+    }
+
+    // 6. 모달 제어 함수
+    function toggleMenuModal(open) {
+        const modal = document.getElementById('menu-modal');
+        const backdrop = document.getElementById('menu-backdrop');
+        const drawer = document.getElementById('menu-drawer');
+        
+        if (open) {
+            modal.classList.remove('invisible');
+            setTimeout(() => {
+                backdrop.classList.add('opacity-100');
+                drawer.classList.remove('-translate-x-full');
+            }, 10);
+        } else {
+            backdrop.classList.remove('opacity-100');
+            drawer.classList.add('-translate-x-full');
+            setTimeout(() => {
+                modal.classList.add('invisible');
+            }, 300);
+        }
+    }
+
+    function toggleProfileModal(open) {
+        const modal = document.getElementById('profile-modal');
+        const backdrop = document.getElementById('profile-backdrop');
+        const card = document.getElementById('profile-card');
+        
+        if (open) {
+            modal.classList.remove('invisible');
+            setTimeout(() => {
+                backdrop.classList.add('opacity-100');
+                card.classList.remove('opacity-0', 'scale-95');
+            }, 10);
+        } else {
+            backdrop.classList.remove('opacity-100');
+            card.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                modal.classList.add('invisible');
+            }, 200);
+        }
+    }
+
+    // 7. 페이지 로드 시 이벤트 바인딩
+    document.addEventListener("DOMContentLoaded", () => {
+        // 사이드 메뉴 항목 바인딩
+        const menuLinks = document.querySelectorAll('#menu-drawer nav a');
+        if (menuLinks[0]) menuLinks[0].onclick = (e) => { e.preventDefault(); navigateTo('survey'); };
+        if (menuLinks[1]) menuLinks[1].onclick = (e) => { e.preventDefault(); navigateTo('requests'); };
+        if (menuLinks[2]) menuLinks[2].onclick = (e) => { e.preventDefault(); navigateTo('history'); };
+        if (menuLinks[3]) menuLinks[3].onclick = (e) => { e.preventDefault(); navigateTo('settings'); };
+
+        // 프로필 모달 내 버튼 바인딩
+        const profileLinks = document.querySelectorAll('#profile-card a');
+        if (profileLinks[0]) profileLinks[0].onclick = (e) => { e.preventDefault(); navigateTo('profile'); };
+        if (profileLinks[1]) profileLinks[1].onclick = (e) => { e.preventDefault(); navigateTo('requests'); };
+        
+        // 프로필 모달 내 로그아웃 버튼 이벤트
+        const logoutBtn = document.querySelector('#profile-card button');
+        if (logoutBtn) logoutBtn.onclick = handleLogout;
+
+        // 하단바 메뉴 바인딩
+        const navLinks = document.querySelectorAll('nav.fixed.bottom-0 a');
+        if (navLinks[0]) navLinks[0].onclick = (e) => { e.preventDefault(); navigateTo('survey'); };
+        if (navLinks[1]) navLinks[1].onclick = (e) => { e.preventDefault(); navigateTo('requests'); };
+        if (navLinks[2]) navLinks[2].onclick = (e) => { e.preventDefault(); navigateTo('history'); };
+
+        // 초기 사용자 정보 UI 동기화
+        updateProfileUI();
+    });
+
+    // 8. 설문 제출 로직
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        
+        const submitBtn = document.getElementById('submit-btn');
+        const formContainer = document.getElementById('form-container');
+        const successContainer = document.getElementById('success-container');
+        const progressBar = document.getElementById('progress-bar');
+        
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = `<span class="material-symbols-outlined animate-spin mr-2">refresh</span> 처리중...`;
+        submitBtn.classList.add('opacity-70');
+
+        setTimeout(() => {
+            formContainer.classList.add('opacity-0', 'scale-95');
+            
+            setTimeout(() => {
+                formContainer.style.display = 'none';
+                progressBar.style.width = '100%';
+                progressBar.classList.replace('to-pastel-peach', 'to-pale-mint');
+                
+                successContainer.classList.remove('invisible', 'opacity-0');
+                successContainer.classList.add('fade-in');
+            }, 500);
+        }, 1200);
+    }
+
+    function resetForm() {
+        const formContainer = document.getElementById('form-container');
+        const successContainer = document.getElementById('success-container');
+        const progressBar = document.getElementById('progress-bar');
+
+        successContainer.classList.remove('fade-in');
+        successContainer.classList.add('opacity-0', 'invisible');
+
+        setTimeout(() => {
+            navigateTo('survey');
+            formContainer.style.display = 'block';
+            formContainer.classList.remove('opacity-0', 'scale-95');
+            
+            progressBar.style.width = '80%';
+            progressBar.classList.replace('to-pale-mint', 'to-pastel-peach');
+        }, 300);
+    }
+</script>
+</body></html>
